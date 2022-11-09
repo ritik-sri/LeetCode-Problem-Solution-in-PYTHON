@@ -3,12 +3,10 @@ from collections import Counter
 class Solution:
     def search(self, A, N):
         # your code here
-        l=0
-        d=Counter(A)
-        for i,j in d.items():
-            if j==1:
-                l=i
-        return l
+        xor=0
+        for i in A:
+            xor^=i
+        return xor
 
 
 #{ 
