@@ -7,8 +7,8 @@ class Solution:
             if curr.val!=0:
                 sumi+=curr.val
             else:
+                dummy.next=ListNode(sumi)
                 dummy=dummy.next
-                dummy.val=sumi
                 sumi=0
             curr=curr.next
         dummy.next=None
