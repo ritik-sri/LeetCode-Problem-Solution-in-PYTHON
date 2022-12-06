@@ -1,10 +1,6 @@
 #User function Template for python3
 import heapq
 def kthSmallest(mat, n, k): 
-    # Your code goes here
-    ans=0
-    if k > n*n:
-        return 2147483647
     minheap=[]
     for i in mat:
         s=i
