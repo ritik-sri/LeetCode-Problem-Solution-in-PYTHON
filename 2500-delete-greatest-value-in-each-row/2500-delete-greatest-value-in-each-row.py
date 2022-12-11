@@ -5,9 +5,9 @@ class Solution:
 			if len(grid[0]) == 0:
 				break
 			l = []
-			for row in range(len(grid)):
-				a = max(grid[row])
-				grid[row].remove(a)
+			for i in grid:
+				a = max(i)
+				i.remove(a)
 				l.append(a)
 			result = result + max(l)
 		return result
