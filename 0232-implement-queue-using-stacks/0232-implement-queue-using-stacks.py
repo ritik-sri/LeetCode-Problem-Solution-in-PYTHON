@@ -1,25 +1,28 @@
 class MyQueue:
+
     def __init__(self):
-        self.kuchbhi=[]
+        self.s=[]
         
 
     def push(self, x: int) -> None:
-        self.kuchbhi.append(x)
+        self.s.append(x)
         
 
     def pop(self) -> int:
-        return self.kuchbhi.pop(0)
+        return self.s.pop(0)
         
 
     def peek(self) -> int:
-        return self.kuchbhi[0]
+        return self.s[0]
         
 
     def empty(self) -> bool:
-        if not self.kuchbhi:
+        if not self.s:
             return True
         else:
             return False
+        
+
 
 # Your MyQueue object will be instantiated and called as such:
 # obj = MyQueue()
