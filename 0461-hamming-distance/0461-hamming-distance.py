@@ -1,21 +1,18 @@
 class Solution:
     def hammingDistance(self, x: int, y: int) -> int:
-
-        # Convert numbers in binary and put them in a list
-        x = list(bin(x)[2:])
-        y = list(bin(y)[2:])
-        
-        # Padding if it the case
-        if len(x) < len(y):
-            x = ["0"]*(len(y)-len(x)) + x
+        x=bin(x)
+        y=bin(y)
+        x=str(x)[2:]
+        y=str(y)[2:]
+        count=0
+        if len(x)<len(y):
+            a=len(y)-len(x)
+            x="0"*a+x
         else:
-            y = ["0"]*(len(x)-len(y)) + y
-        print("".join(x),"".join(y))
-        # Computing the Hamming distance
-        hamming_distance = 0
-        for x_digit, y_digit in zip(x,y):
-
-            if x_digit != y_digit:
-                hamming_distance += 1
-        
-        return hamming_distance
+            b=len(x)-len(y)
+            y="0"*b+y
+        print(x,y)
+        for i,j in zip(x,y):
+            if i!=j:
+                count+=1
+        return count
