@@ -1,37 +1,29 @@
 from collections import defaultdict
+from collections import Counter
 class Solution:
-    def totalFruit(self, f: List[int]) -> int:
-        mp = defaultdict(int)
-        n = len(f)
-        i = 0
-        j = 0
-        maxi = 0
-        while i < n:
-            mp[f[i]] += 1
-            while len(mp) > 2:
-                mp[f[j]] -= 1
-                if mp[f[j]] == 0:
-                    del mp[f[j]]
-                j += 1
-            maxi = max(maxi, i - j + 1)
-            i += 1
-        return maxi
-'''
     def totalFruit(self, fruits: List[int]) -> int:
-        n=len(fruits)
-        i=0
-        j=0
-        maxi=0
-        d=defaultdict(int)
-        while(j<n):
-            d[fruits[j]]+=1
-            while len(d)>2:
-                d[fruits[i]]-=1
-                if(d[fruits[i]])==0:
-                    del d[fruits[i]]
-                i+=1
-            j+=1
-            maxi=max(j-i+1,maxi)
-            j+=1
-        return maxi
-        '''
+        i,j=0,0
+        ans=[]
+        if len(fruits)<=2:
+            return len(fruits)
+        if len(Counter(fruits))<2:
+            return len(fruits)
+        mp = defaultdict(int)
+        while(j<len(fruits)):
+            mp[fruits[j]]+=1
+            if(len(mp)<2):
+                j+=1
+            elif len(mp)==2:
+                ans.append(j-i+1)
+                j+=1
+            elif len(mp)>2:
+                while len(mp)>2:
+                    mp[fruits[i]]-=1
+                    if mp[fruits[i]]==0:
+                        del mp[fruits[i]]
+                    i+=1
+                j+=1
+        if len(ans)==0:
+            return 0
+        else:
+            return max(ans)
