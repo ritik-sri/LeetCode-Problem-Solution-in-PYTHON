@@ -14,7 +14,8 @@ class Solution:
             if(len(mp)<2):
                 j+=1
             elif len(mp)==2:
-                ans.append(j-i+1)
+                a=sum(mp.values())
+                ans.append(a)
                 j+=1
             elif len(mp)>2:
                 while len(mp)>2:
