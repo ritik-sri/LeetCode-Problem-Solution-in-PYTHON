@@ -3,8 +3,7 @@
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
-from collections import defaultdict
-from collections import Counter
+from collections import defaultdict,Counter
 class Solution:
     def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
         a=head
