@@ -3,7 +3,7 @@ class Solution(object):
         nums.sort()
         ans = 0
         low=len(nums)-1
-        cnt=0
+        cnt=0 
         high=len(nums)-1
         n = len(nums)
         i=0
