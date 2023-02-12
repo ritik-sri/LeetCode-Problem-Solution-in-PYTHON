@@ -2,22 +2,19 @@ class Solution(object):
     def countFairPairs(self, nums, lower, upper):
         nums.sort()
         ans = 0
+        low=len(nums)-1
+        cnt=0
+        high=len(nums)-1
         n = len(nums)
-        for i in range(n):
-            l,h = 0,i - 1
-            while l <= h:
-                mid = (l + h) >> 1
-                if nums[mid] + nums[i] >= lower:
-                    h = mid - 1
-                else:
-                    l = mid + 1
-            ind = h + 1
-            l,h = ind,i - 1
-            while l <= h:
-                mid = (l + h) >> 1
-                if nums[mid] + nums[i] <= upper:
-                    l = mid + 1
-                else:
-                    h = mid - 1
-            ans += (l - ind)
-        return ans
+        i=0
+        while(i<high):
+            low=max(i,low)
+            while(low>i and nums[i]+nums[low]>=lower):
+                low-=1
+            while(high>low and nums[i]+nums[high]>upper):
+                high-=1
+            cnt+=high-low
+            i+=1
+        return cnt
+            
+            
