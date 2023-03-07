@@ -84,11 +84,11 @@ class Node:
 '''
 class Solution:
     def maxLevelSum(self, root):
-        bfs=[]
         if root is None:
-            return bfs
+            return root
         q=deque([])
         q.append(root)
+        bfs=float('-inf')
         while q:
             lvl_size=len(q)
             curr_lvl=[]
@@ -99,8 +99,8 @@ class Solution:
                     q.append(curr.left)
                 if curr.right is not None:
                     q.append(curr.right)
-            bfs.append(sum(curr_lvl))
-        return max(bfs)
+            bfs=max(bfs,sum(curr_lvl))
+        return bfs
 
 
 #{ 
