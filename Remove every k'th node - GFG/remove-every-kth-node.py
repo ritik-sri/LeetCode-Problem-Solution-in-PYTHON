@@ -1,19 +1,19 @@
+#Your task is to complete this function
+#Your function should return the new head pointer
 def deleteK(head, k):
-    # Edge cases
-    if k == 1:
+    #code here
+    if head is None or k==1:
         return None
-
-    # Traverse the linked list
-    t = head
-    cnt = 1
-    while t is not None and t.next is not None:
-        cnt += 1
-        if cnt == k:
-            cnt = 1
-            t.next = t.next.next
-        t = t.next
-
-    # Return the updated head of the linked list
+    if k==0:
+        return head
+    a=head
+    count=1
+    while a is not None and a.next is not None:
+        count+=1
+        if count==k:
+            a.next=a.next.next
+            count=1
+        a=a.next
     return head
 
 
