@@ -9,7 +9,8 @@ class Solution:
             for neighbour in adj[node]:
 
                 if not visited[neighbour]:
-                    if DFS(neighbour, node): return True
+                    if DFS(neighbour, node)==True:
+                        return True
                 
                 elif neighbour != parent: return True
             
