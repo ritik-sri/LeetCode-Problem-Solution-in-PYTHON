@@ -12,7 +12,7 @@ class Solution:
                     if DFS(neighbour, node)==True:
                         return True
                 
-                elif neighbour != parent: return True
+                elif neighbour != parent: return True # i encounter a cycle how it is visited
             
             return False
             
