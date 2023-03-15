@@ -4,10 +4,9 @@ class Solution:
     def minIncrements(self, arr, N): 
         # Code here
         arr.sort()
-        i=1
         minop=0
         for i in range(1,N):
-            if arr[i]<=arr[i-1]:
+            if(arr[i]<=arr[i-1]):
                 minop+=arr[i-1]-arr[i]+1
                 arr[i]=arr[i-1]+1
         return minop
