@@ -8,24 +8,21 @@ class Solution():
                 return 1
             else:
                 return n+f(n-1)
+                
         i=0
         l=[]
         j=0
         count=0
+        ans=0
         while(j<=len(arr)-1):
             if(arr[j]==0):
                 count+=1
             else:
                 if count!=0:
-                    l.append(count)
+                    ans+=(count*(count+1)//2)
                     count=0
             j+=1
-        if count!=0:
-            l.append(count)
-            
-        ans=0
-        for i in l:
-            ans+=(i*(i+1))//2
+        ans+=(count*(count+1)//2)
         return ans
 
 
