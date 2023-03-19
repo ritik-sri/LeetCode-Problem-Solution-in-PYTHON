@@ -1,51 +1,22 @@
 from typing import List
 class Solution:
     def getDistinctDifference(self, N : int, A : List[int]) -> List[int]:
-        
-        st = set()
-
-        left = [0] * N
-        right = [0] * N
-
+        s1=set()
+        s2=set()
+        left=[]
+        right=[]
         for i in range(N):
-            left[i] = len(st)
-            st.add(A[i])
-        st.clear()
-
-        for i in range(N - 1, -1, -1):
-            right[i] = len(st)
-            st.add(A[i])
-
-        res = [0] * N
-
+            left.append(len(s1))
+            s1.add(A[i])
+            
+        for j in range(len(A)-1,-1,-1):
+            right.append(len(s2))
+            s2.add(A[j])
+        right=right[::-1]
+        res=[]
         for i in range(N):
-            res[i] = left[i] - right[i]
-
+            res.append(left[i]-right[i])
         return res
-
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
 #{ 
  # Driver Code Starts
 # class IntArray:
