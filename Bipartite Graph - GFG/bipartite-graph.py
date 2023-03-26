@@ -4,17 +4,18 @@ class Solution:
     def bfs(node: int, adj: List[List[int]], col: List[int]) -> bool:
         queue = deque()
         queue.append(node)
-        col[node] = 1
+        col[node] = 0
         while queue:
             v = queue.popleft()
             for j in adj[v]:
                 if col[j] == -1:
-                    col[j] = 1 - col[v]
+                    col[j] = not col[v]
                     queue.append(j)
                 else:
                     if col[j] == col[v]:
                         return False
         return True
+    #to check for all the components
     def isBipartite(self, V, adj):
         col = [-1] * V
         for i in range(V):
