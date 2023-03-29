@@ -7,7 +7,6 @@ class Solution:
         while(i<=N):
             lst = arr[i:i+K][::-1]
             arr[i:i+K] = lst
-            lst=[]
             i+=K
         return arr
 #{ 
