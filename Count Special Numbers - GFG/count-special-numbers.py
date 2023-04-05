@@ -9,8 +9,7 @@ class Solution:
             if d[arr[i]]>1:
                 c+=1
             else:
-                j=0
-                while j<i:
+                for j in range(i):
                     if arr[i]%arr[j]==0:
                         c+=1
                         break
