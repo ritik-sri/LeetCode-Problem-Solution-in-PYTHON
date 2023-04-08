@@ -7,6 +7,7 @@ class Solution:
         for i in range(V):
             for j in adj[i]:
                 indegree[j]+=1
+                
         queue=[]
         for i in range(V):
             if indegree[i]==0:
