@@ -11,13 +11,11 @@ class Solution:
                     dfs(nrow, ncol, ans, image, newColor, delrow, delcol, iniColor)
         
         iniColor = image[sr][sc]
-        ans = [row[:] for row in image] # create a copy of the original image
+        ans = image # create a copy of the original image
         delrow = [-1, 0, 1, 0]
         delcol = [0, 1, 0, -1]
         dfs(sr, sc, ans, image, newColor, delrow, delcol, iniColor)
         return ans
-
-        
 #{ 
  # Driver Code Starts
 import sys
