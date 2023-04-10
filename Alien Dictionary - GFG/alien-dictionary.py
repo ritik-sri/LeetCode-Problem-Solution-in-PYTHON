@@ -19,6 +19,7 @@ class Solution:
                 indegree[i]-=1
                 if(indegree[i]==0):
                     queue.append(i)
+                    
         if len(ans)==V:
             return ans
         else:
@@ -32,20 +33,14 @@ class Solution:
             a = min(len(s1), len(s2))
             for j in range(a):
                 if s1[j] != s2[j]:
-                    adj[ord(s1[j])-ord('a')].append(ord(s2[j])-ord('a'))
+                    adj[ord(s1[j])-ord('a')].append(ord(s2[j])-ord('a'))#adjacency
                     break
+                
         topo=self.topoSort(K,adj)
         ans=''
         for l in topo:
             ans+=chr(l+ord('a'))
         return ans
-
-            
-            
-            
-
-
-
 
 #{ 
  # Driver Code Starts
