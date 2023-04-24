@@ -4,7 +4,6 @@
 
 # } Driver Code Ends
 #User function Template for python3
-from collections import defaultdict
 class Solution:
     def lemonadeChange(self, N, bills):
         count_5 = 0
