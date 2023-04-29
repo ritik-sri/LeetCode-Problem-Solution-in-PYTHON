@@ -12,7 +12,7 @@ class Solution:
             if i == 0:
                 return matrix[0][j]
             if dp[i][j] != -1:
-                return dp[i][j]
+                return dp[i][j]           
             s = matrix[i][j] + f(i-1, j)
             l = matrix[i][j] + f(i-1, j-1)
             r = matrix[i][j] + f(i-1, j+1)
