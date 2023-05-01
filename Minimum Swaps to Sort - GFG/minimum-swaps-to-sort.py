@@ -10,7 +10,6 @@ class Solution:
         for i, v in enumerate(sorted_dic.values()):
             if i != v:
                 nums[i], nums[v] = nums[v], nums[i]
-                dic[nums[i]], dic[nums[v]] = dic[nums[v]], dic[nums[i]]
                 sorted_dic[nums[i]], sorted_dic[nums[v]] = sorted_dic[nums[v]], sorted_dic[nums[i]]
                 swaps += 1
         return swaps
