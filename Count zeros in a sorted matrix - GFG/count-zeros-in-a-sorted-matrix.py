@@ -7,7 +7,7 @@ class Solution:
         i=0
         j=m-1
         count=0
-        while(i>=0 and i<n and j>=0 and j<n):
+        while(i>=0 and i<m and j>=0 and j<n):
             if(A[i][j]==1):
                 j-=1
             else:
