@@ -11,6 +11,7 @@ class Solution:
             else:
                 m=m+p[i]
         return m if len(m)!=0 else "-1"
+        
 #{ 
  # Driver Code Starts
 #Initial Template for Python 3
