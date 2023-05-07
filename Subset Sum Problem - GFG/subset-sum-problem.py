@@ -6,7 +6,6 @@ class Solution:
             if (ind, target) in memo:
                 return memo[(ind, target)]
             if target == 0:
-                memo[(ind, target)] = True
                 return True
             if ind == 0:
                 memo[(ind, target)] = arr[0] == target
