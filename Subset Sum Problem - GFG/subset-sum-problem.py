@@ -6,16 +6,18 @@ class Solution:
             if (ind, target) in memo:
                 return memo[(ind, target)]
             if target == 0:
+                memo[(ind, target)] = True
                 return True
             if ind == 0:
-                return arr[0] == target
-            not_take = find(ind - 1, target)
+                memo[(ind, target)] = arr[0] == target
+                return memo[(ind, target)]
+            take = False
             if target >= arr[ind]:
                 take = find(ind - 1, target - arr[ind])
                 memo[(ind - 1, target - arr[ind])] = take
-                return take or not_take
+            not_take = find(ind - 1, target)
             memo[(ind - 1, target)] = not_take
-            return not_take
+            return take or not_take
 
         return find(N - 1, target)
 
