@@ -1,5 +1,4 @@
 from collections import deque
-
 class Solution:
     def diagonal(self, root):
         q = deque()
@@ -7,11 +6,11 @@ class Solution:
         ans = []
         while q:
             x = q.popleft()
-            while x is not None:
+            while x:
                 if x.left:
                     q.append(x.left)
                 ans.append(x.data)
-                x=x.right
+                x = x.right
         return ans
 #{ 
  # Driver Code Starts
