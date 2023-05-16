@@ -1,6 +1,3 @@
-
-            
-            
 class Solution:
     def removeAllDuplicates(self, head):
         l = []
@@ -16,19 +13,16 @@ class Solution:
             a = a.next
         
         # Remove nodes with duplicate values
-        prev = None
-        curr = head
-        while curr:
-            if dic[curr.data] > 1:
-                if prev:
-                    prev.next = curr.next
-                else:
-                    head = curr.next
-            else:
-                prev = curr
-            curr = curr.next
-        
-        return head
+        prev=Node(-1)
+        dummy=prev
+        a=head
+        while a:
+            if dic[a.data]==1:
+                prev.next=a
+                prev=prev.next
+            a=a.next
+        prev.next=None
+        return dummy.next
 #{ 
  # Driver Code Starts
 #Initial Template for Python 3
