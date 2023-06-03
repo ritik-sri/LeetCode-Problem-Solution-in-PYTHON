@@ -7,22 +7,22 @@ class Node:
         self.right = None
 '''
 class Solution:
-    def hasPathSum(self,root, S):
+    def hasPathSum(self, root, S):
         '''
         :param root: root of given tree.
-        :param sm: root to leaf sum
-        :return: true or false
+        :param S: root to leaf sum
+        :return: True or False
         '''
-        # code here
-        def dfs(root,sumi):
+        def dfs(root, sumi):
             if root is None:
-                return False 
-            sumi+=root.data
+                return False
             if root.left is None and root.right is None:
-                return sumi==S
-            return dfs(root.left,sumi) or dfs(root.right,sumi)
-            
-        return dfs(root,0)
+                return sumi == root.data
+            return dfs(root.left, sumi - root.data) or dfs(root.right, sumi - root.data)
+        
+        if root is None:
+            return False
+        return dfs(root, S)
         
         #when sumi==S break apply this condition
 #{ 
