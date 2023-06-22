@@ -4,6 +4,8 @@
 
 # } Driver Code Ends
 #User function Template for python3
+
+#User function Template for python3
 class Solution:
     def lemonadeChange(self, N, bills):
         count_5 = 0
@@ -29,8 +31,8 @@ class Solution:
                 else:
                     return False
         return True
+        # Code here
 
-        
 #{ 
  # Driver Code Starts.
 if __name__ == '__main__': 
