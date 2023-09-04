@@ -1,37 +1,37 @@
-from collections import deque
-lis1=[-1,1,0,0]
-lis2=[0,0,-1,1]
 class Solution:
     def fill(self, n, m, mat):
-        q=deque()
-        
-        for i in range(n):
-            for j in range(m):
-                if i==0 or j==0 or i==n-1 or j==m-1:
-                    if mat[i][j]=='O':
-                        q.append([i,j])
-                        mat[i][j]='q'
-        
-        while q:
-            t=q.popleft()
-            r=t[0]
-            c=t[1]
+        def dfs(i, j):
+            if i < 0 or i >= n or j < 0 or j >= m or vis[i][j] or mat[i][j] != 'O':
+                return
+            vis[i][j] = True
             
-            for i in range(4):
-                nr=r+lis1[i]
-                nc=c+lis2[i]
-                
-                if nr>=0 and nc>=0 and nr<n and nc<m and mat[nr][nc]=='O':
-                    q.append([nr,nc])
-                    mat[nr][nc]="q"
+            dfs(i - 1, j)
+            dfs(i + 1, j)
+            dfs(i, j - 1)
+            dfs(i, j + 1)
+
+        vis = [[False for _ in range(m)] for _ in range(n)]
+
+        for j in range(m):
+            if not vis[0][j] and mat[0][j] == 'O':
+                dfs(0, j)
+            if not vis[n - 1][j] and mat[n - 1][j] == 'O':
+                dfs(n - 1, j)
+
+        for i in range(n):
+            if not vis[i][0] and mat[i][0] == 'O':
+                dfs(i, 0)
+            if not vis[i][m - 1] and mat[i][m - 1] == 'O':
+                dfs(i, m - 1)
+
         for i in range(n):
             for j in range(m):
-                if mat[i][j]=='O':
-                    mat[i][j]='X'
-                if mat[i][j]=='q':
-                    mat[i][j]='O'
+                if mat[i][j] == 'O' and not vis[i][j]:
+                    mat[i][j] = 'X'
+
         return mat
-        
+
+
 #{ 
  # Driver Code Starts
 #Initial Template for Python 3
