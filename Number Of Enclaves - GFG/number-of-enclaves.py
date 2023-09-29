@@ -1,46 +1,42 @@
-#User function Template for python3
 from typing import List
-from collections import deque
-class Solution:    
+
+class Solution:
     def numberOfEnclaves(self, grid: List[List[int]]) -> int:
-        # code here
-        q = deque()
-        m = len(grid[0])
-        n = len(grid)
-        vis = [[0] * m for _ in range(n)]  
-
+        m, n = len(grid[0]), len(grid)
+        stack = []
+        
+        # Mark boundary '1's as visited and push them to the stack
+        for i in range(n):
+            if grid[i][0] == 1:
+                stack.append((i, 0))
+            if grid[i][m - 1] == 1:
+                stack.append((i, m - 1))
+        for j in range(m):
+            if grid[0][j] == 1:
+                stack.append((0, j))
+            if grid[n - 1][j] == 1:
+                stack.append((n - 1, j))
+        
+        # Perform DFS using the stack
+        while stack:
+            i, j = stack.pop()
+            if 0 <= i < n and 0 <= j < m and grid[i][j] == 1:
+                grid[i][j] = 0  # Mark cell as visited
+                # Explore neighbors
+                stack.extend([(i + 1, j), (i - 1, j), (i, j + 1), (i, j - 1)])
+        
+        # Count remaining '1's (enclaves) after DFS
+        count = 0
         for i in range(n):
             for j in range(m):
-                if i == 0 or j == 0 or i == n - 1 or j == m - 1:
-                    if grid[i][j] == 1:  
-                        q.append((i, j)) 
-                        vis[i][j] = 1
-
-        delrow = [-1, 0, 1, 0] 
-        delcol = [0, 1, 0, -1]  
-
-        while q:
-            a = q.popleft()
-            row = a[0]
-            col = a[1]
-            for i in range(4):
-                nrow = row + delrow[i]
-                ncol = col + delcol[i]
-                if (nrow>0 and nrow<n) and (ncol>=0 and ncol<m):  
-                    if vis[nrow][ncol] == 0 and grid[nrow][ncol] == 1:
-                        q.append((nrow, ncol))
-                        vis[nrow][ncol] = 1
-
-        cnt = 0
-        for i in range(n):
-            for j in range(m):
-                if grid[i][j] == 1 and vis[i][j] == 0: 
-                    cnt += 1
-        return cnt
+                if grid[i][j] == 1:
+                    count += 1
         
-        
+        return count
 
 
+    
+    
 #{ 
  # Driver Code Starts
 #Initial Template for Python 3
