@@ -11,19 +11,19 @@ class Solution:
             new_root = TreeNode(val)
             new_root.left = root
             return new_root
-        q = deque([(root, 1)])
-        while q:
-            node, current_depth = q.popleft()
-            if current_depth == depth - 1:
-                left = TreeNode(val)
-                right = TreeNode(val)
-                left.left = node.left
-                right.right = node.right
-                node.left = left
-                node.right = right
+        queue = deque([(root, 1)])
+        while queue:
+            node,current_depth=queue.popleft()
+            if current_depth==depth-1:
+                leftchild=TreeNode(val)
+                rightchild=TreeNode(val)
+                leftchild.left=node.left
+                rightchild.right=node.right
+                node.left=leftchild
+                node.right=rightchild
             else:
                 if node.left:
-                    q.append((node.left, current_depth + 1))
+                    queue.append((node.left, current_depth + 1))
                 if node.right:
-                    q.append((node.right, current_depth + 1))
+                    queue.append((node.right, current_depth + 1))
         return root
