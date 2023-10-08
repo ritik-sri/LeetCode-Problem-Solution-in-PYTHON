@@ -35,11 +35,12 @@ def printList(head):
 #User function Template for python3
 class Solution:
     def sortedInsert(self, head, key):
-        dummy = Node(key)
+        
+        r=dummy = Node(key)
         if head.data > key:
             dummy.next = head
-            head = dummy
-            return head
+            return r
+            
         a = head
         while a.next and a.next.data < key:
             a = a.next
@@ -47,8 +48,6 @@ class Solution:
         a.next = Node(key)
         a.next.next = temp
         return head
-        
-
 #{ 
  # Driver Code Starts.
 if __name__ == '__main__':
