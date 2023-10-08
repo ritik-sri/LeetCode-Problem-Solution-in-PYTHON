@@ -34,21 +34,20 @@ def printList(head):
 # } Driver Code Ends
 #User function Template for python3
 class Solution:
-    def sortedInsert(self, head, data):
-        if head.data > data:
-            data_node = Node(data)
-            data_node.next = head
-            return data_node
-        current = head
-        while current.next and current.next.data < data:
-            current = current.next
-        new_node = Node(data)
-        new_node.next = current.next
-        current.next = new_node
+    def sortedInsert(self, head, key):
+        dummy = Node(key)
+        if head.data > key:
+            dummy.next = head
+            head = dummy
+            return head
+        a = head
+        while a.next and a.next.data < key:
+            a = a.next
+        temp = a.next
+        a.next = Node(key)
+        a.next.next = temp
         return head
-                
-                
-
+        
 
 #{ 
  # Driver Code Starts.
