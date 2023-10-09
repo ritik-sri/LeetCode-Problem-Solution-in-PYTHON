@@ -11,12 +11,7 @@ class Solution:
             if sumi < 0:
                 sumi = 0
         return maxi
-
-            
         
-        
-
-
 #{ 
  # Driver Code Starts
 #Initial Template for Python 3
