@@ -1,25 +1,16 @@
+#User function Template for python3
+
 class Solution:
-
-    def helper(self, root, inp, ans):
-        if not root:
-            return ans
-
-        if root.data == inp:
-            ans = inp
-            return ans
-
-        if root.data > inp:
-            return self.helper(root.left, inp, ans)
-
-        if root.data < inp:
-            ans = root.data
-            return self.helper(root.right, inp, ans)
-
     def floor(self, root, x):
-        if not root:
-            return -1
-        ans = -1
-        return self.helper(root, x, ans)
+        # Code here
+        ans=-1
+        while root:
+            if root.data<=x:
+                ans=max(ans,root.data)
+                root=root.right
+            else:
+                root=root.left
+        return ans
 
 
 #{ 
@@ -52,4 +43,4 @@ if __name__=="__main__":
         s=int(input())
         obj = Solution()
         print(obj.floor(root,s))
-# } Driverxde Ends
+# } Driver Code Ends
