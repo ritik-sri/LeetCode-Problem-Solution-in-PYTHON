@@ -14,13 +14,13 @@ class Solution:
                 break
 				
 		# dfs to connect the graph
-        nums=[]
-        seen = set()
+        ans=[]
+        visited=set()
         def dfs(num):
-            nums.append(num)
-            seen.add(num)
-            for next_num in adj[num]:
-                if next_num in seen: continue
-                dfs(next_num)
+            visited.add(num)
+            ans.append(num)
+            for i in adj[num]:
+                if i not in visited:
+                    dfs(i)
         dfs(start)
-        return nums
+        return ans
