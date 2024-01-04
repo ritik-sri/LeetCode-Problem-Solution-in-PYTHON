@@ -7,6 +7,6 @@ class Solution:
                 return -1
             elif val % 3 == 0:
                 res += val // 3
-            else: # val % 3 == 2 or val % 3 == 1
+            else:
                 res += val // 3 + 1
         return res
