@@ -1,16 +1,17 @@
 class Solution:
     def letterCasePermutation(self, s: str) -> List[str]:
-        def generate_permutations(s, index, current, result):
-            if index == len(s):
-                result.append(current)
-                return
-            char = s[index]
-            if char.isalpha():
-                generate_permutations(s, index + 1, current + char.lower(), result)
-                generate_permutations(s, index + 1, current + char.upper(), result)
+        def generate(s,index,current,result):
+            if index==len(s):
+                ans.append(current)
+                return 
+            ind=s[index]
+            if ind.isalpha():
+                generate(s,index+1,current+ind.lower(),ans)
+                generate(s,index+1,current+ind.upper(),ans)
             else:
-                generate_permutations(s, index + 1, current + char, result)
-
-        result = []
-        generate_permutations(s, 0, "", result)
-        return result
+                generate(s,index+1,current+ind,ans)
+        ans=[]
+        generate(s,0,"",ans)
+        return ans
+            
+                
